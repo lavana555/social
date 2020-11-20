@@ -7,7 +7,7 @@ console.log(classes);
 
 
 const Navbar = (props) => {
-    let friendElements = props.friendsDate.map((fr, index) => <Friend name={fr.name} key={index}/>)
+    // let friendElements = props.friendsDate.map((fr, index) => <Friend name={fr.name} key={index}/>)
     return (
         <div className={classes.nav}>
             <nav>
@@ -30,7 +30,7 @@ const Navbar = (props) => {
                     <NavLink to="/friends" activeClassName={classes.active}> Friends</NavLink>
                 </div>
                 <div className={classes.nav_friends}>
-                    {friendElements}
+                    {/*{friendElements}*/}
                 </div>
             </nav>
         </div>

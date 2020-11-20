@@ -1,24 +1,20 @@
 import style from './MyPosts.module.css';
 import React from "react";
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reducer";
-
-
 
 const MyPosts = (props) => {
-
+debugger
 
     let messageElement = React.createRef()
 
     const addMessage = (e) => {
-        props.dispatch(addPostActionCreator())
+        props.onAddMessage()
 
     }
     let changeValue = (e) => {
 
         let newMessage = e.currentTarget.value
-        props.dispatch(updateNewPostActionCreator(newMessage))
-
+        props.onchangeValue(newMessage)
     }
 
 

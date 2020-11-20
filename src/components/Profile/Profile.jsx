@@ -4,17 +4,25 @@ import MyPosts from "./MyPosts/MyPosts";
 import Profileinfo from "./Profileinfo/Profileinfo";
 
 import App from "../../App";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = (props) => {
+const Profile = () => {
+
 
 
     return (
         <div>
             <Profileinfo/>
-            <MyPosts
-                dispatch={props.dispatch}
-                newPostText={props.newPostText}
-                postsData={props.postsData}/>
+            <MyPostsContainer
+               // store={props.store}
+                // dispatch={props.dispatch}
+                //                newPostText={props.newPostText}
+                //                postsData={props.postsData}
+            />
+            {/*<MyPosts*/}
+            {/*    dispatch={props.dispatch}*/}
+            {/*    newPostText={props.newPostText}*/}
+            {/*    postsData={props.postsData}/>*/}
         </div>
     )
 }
