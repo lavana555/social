@@ -1,39 +1,39 @@
 import React from 'react';
 import User from "./User/User";
-import {FollowActionCreator, UnFollowActionCreator} from "../../redux/users-reducer";
-
+import style from "./Users.module.css";
 
 const Users = (props) => {
-if (props.users.length===0) {
-    props.setUsers([
-        {id: 1, followed: false, name: 'valera', status: "best teacher", location: {city: 'Minsk', country: 'belarus'}},
-        {id: 2, followed: true, name: 'paul', status: "best friend", location: {city: 'Moscow', country: 'Russia'}},
-        {id: 3, followed: true, name: 'ira', status: "best girl", location: {city: 'warsawa', country: 'Poland'}},
 
-    ])
-}
-
-    let Onfollow = (id) => {
-        props.onFollow(id)
+    let pagesCount = Math.ceil(props.totalUserCount / props.pageSize)
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
     }
-    let OnUnfollow = (id) => {
-        props.onUnFollow(id)
-    }
-
+    console.log('bla')
     let userElements = props.users.map((u, index) => <User
         name={u.name}
         status={u.status}
         key={index}
+        photos={u.photos}
         id={u.id}
         followed={u.followed}
-        OnUnfollow={OnUnfollow}
-        Onfollow={Onfollow}
-
+        OnUnfollow={props.OnUnfollow}
+        Onfollow={props.Onfollow}
     />)
+
+
     return (
         <div>
+            <div>
+                {pages.map((p, index) => {
+                    return <span
+                        onClick={(e) => {
+                            props.secondPages(p)
+                        }}
+                        className={props.currentPage === p && style.selectedPage} key={index}>{p}</span>
+                })}
+            </div>
             {userElements}
-
         </div>
     );
 };

@@ -17,10 +17,10 @@ let store = {
             ],
 
             messagesDate: [
-                {id: 1, message: 'hi paul!'},
+                {id: 1, message: 'hi paul!ey'},
                 {id: 2, message: 'hi roma'},
                 {id: 3, message: 'hi ira'},
-                {id: 4, message: 'hi valera'},
+                {id: 4, message: 'hi valeraaaa'},
                 {id: 5, message: 'hi nikita'},
             ],
             newDialogPost: 'new diaolog post'

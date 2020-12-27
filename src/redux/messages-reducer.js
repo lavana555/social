@@ -14,7 +14,7 @@ let intialState = {
     ],
 
     messagesDate: [
-        {id: 1, message: 'hi paul!'},
+        {id: 1, message: 'hi paul!!!!'},
         {id: 2, message: 'hi roma'},
         {id: 3, message: 'hi ira'},
         {id: 4, message: 'hi valera'},
@@ -51,5 +51,5 @@ const messageReducer = (state = intialState, action) => {
 export default messageReducer;
 
 
-export const addDialogActionCreator = () => ({type: ADD_DIALOG})
-export const updateNewDialogActionCreator = (newDialog) => ({type: UPDATE_NEW_DIALOG, newDialog: newDialog})
+export const onaddMessage = () => ({type: ADD_DIALOG})
+export const onchangeValue = (newDialog) => ({type: UPDATE_NEW_DIALOG, newDialog: newDialog})

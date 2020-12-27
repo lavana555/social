@@ -12,8 +12,9 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Users from "./components/Users/Users";
+import Users from "./components/Users/UsersAPIComponent";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
             <div className="app-wrapper-content">
                 <Route path="/dialogs" render={() => <DialogsContainer
                 />}/>
-                <Route path="/profile" render={() => <Profile
+                {/*<Route path="/profile" render={() => <Profile*/}
+                <Route path="/profile" render={() => <ProfileContainer
                 />}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>

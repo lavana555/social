@@ -3,8 +3,8 @@ import React from "react";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-debugger
-
+//  debugger
+// console.log(props.userData)
     let messageElement = React.createRef()
 
     const addMessage = (e) => {

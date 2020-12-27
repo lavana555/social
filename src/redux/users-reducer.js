@@ -1,6 +1,10 @@
+import {act} from "@testing-library/react";
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const GET_USERS = 'GET_USERS'
+const SECOND_CURRENT_PAGE = 'SECOND_CURRENT_PAGE'
+const CHANGE_FLAG = 'CHANGE_FLAG'
 
 
 let intialState = {
@@ -9,7 +13,11 @@ let intialState = {
         // {id: 2, followed: true, name: 'paul', status: "best friend", location: {city: 'Moscow', country: 'Russia'}},
         // {id: 3, followed: true, name: 'ira', status: "best girl", location: {city: 'warsawa', country: 'Poland'}},
 
-    ]
+    ],
+    pageSize:100,
+    totalUserCount:8,
+    currentPage:1,
+    flag:false
 }
 
 
@@ -19,7 +27,15 @@ const UsersReducer = (state = intialState, action) => {
         case GET_USERS: {
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                totalUserCount: action.totalCount,
+                users:  action.users
+            }
+
+        }
+        case SECOND_CURRENT_PAGE: {
+            return {
+                ...state,
+                currentPage: action.newcurrentPage
             }
 
         }
@@ -47,13 +63,21 @@ const UsersReducer = (state = intialState, action) => {
                 })
             }
         }
+        case CHANGE_FLAG: {
+            return {
+                ...state,
+                flag:action.flag
+            }
+        }
         default:
             return state
     }
 
 }
 
-export const FollowActionCreator = (userId) => ({type: FOLLOW, userId})
-export const UnFollowActionCreator = (userId) => ({type: UNFOLLOW, userId})
-export const getUserAC = (users) => ({type: GET_USERS, users})
+export const onFollow = (userId) => ({type: FOLLOW, userId})
+export const onUnFollow = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users,totalCount) => ({type: GET_USERS, users,totalCount})
+export const newSetPage = (newcurrentPage) => ({type: SECOND_CURRENT_PAGE, newcurrentPage})
+export const changedPreloader = (flag) => ({type: CHANGE_FLAG, flag:flag})
 export default UsersReducer;
